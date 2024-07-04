@@ -1,8 +1,8 @@
-import { get } from '$lib/api.js';
+import { get } from '$lib/api';
 import type { MovieDetails } from '$lib/types.js';
 
 export const load = async ({ params, fetch }) => {
-	const movie = (await get(fetch, `/movie/${params.id}`, {
+	const movie = (await get(fetch, `movie/${params.id}`, {
 		append_to_response: 'images,videos,recommendations'
 	})) as MovieDetails;
 

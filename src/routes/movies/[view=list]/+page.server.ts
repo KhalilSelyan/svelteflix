@@ -1,4 +1,4 @@
-import { get } from '$lib/api.js';
+import { get } from '$lib/api';
 import type { MovieList } from '$lib/types.js';
 import { views, type ViewName } from '$lib/views.js';
 

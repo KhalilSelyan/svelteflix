@@ -8,14 +8,14 @@ export type ViewName = (typeof view)[number];
 export const views: Record<ViewName, View> = {
 	trending: {
 		title: 'Trending',
-		endpoint: '/trending/movie/day'
+		endpoint: 'movie/popular'
 	},
 	now_playing: {
 		title: 'Now Playing',
-		endpoint: '/movie/now_playing'
+		endpoint: 'movie/now_playing'
 	},
 	upcoming: {
 		title: 'Upcoming',
-		endpoint: '/movie/upcoming'
+		endpoint: 'movie/upcoming'
 	}
 };

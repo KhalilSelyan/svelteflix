@@ -22,7 +22,7 @@
 		{/if}
 
 		<dl
-			class="sim:[grid-template-columns:max-content_1fr_max-content_1fr] mid:[grid-template-columns:1fr_1fr] mid:h-0 grid items-center gap-8 [grid-template-columns:max-content_1fr]"
+			class="grid items-center gap-8 [grid-template-columns:max-content_1fr] mid:h-0 mid:[grid-template-columns:1fr_1fr] sim:[grid-template-columns:max-content_1fr_max-content_1fr]"
 		>
 			{#if data.movie.release_date}
 				<dt class="top-[0.2rem] h-0 text-sm uppercase opacity-80">Released</dt>
@@ -58,7 +58,7 @@
 		</dl>
 	</div>
 
-	{#if data.movie.recommendations.results.length > 0}
+	{#if data.movie.recommendations && data.movie.recommendations.results.length > 0}
 		<Carousel
 			movies={data.movie.recommendations.results}
 			view={{

@@ -5,8 +5,8 @@
 
 <div class="rating">
 	<span class="stars">
-		<span class="stroke" />
-		<span class="fill" style="--rating: {vote_average}" />
+		<span class="stroke"></span>
+		<span class="fill" style="--rating: {vote_average}"></span>
 	</span>
 	<span class="count">({vote_count})</span>
 </div>

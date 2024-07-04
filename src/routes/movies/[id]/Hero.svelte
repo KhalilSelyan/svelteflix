@@ -26,7 +26,7 @@
 	</div>
 
 	<div
-		class="lg:drop-shadow-sv -mt-12 flex flex-col justify-center gap-4 px-4 lg:absolute lg:left-0 lg:top-0 lg:mt-0 lg:h-full lg:w-[40rem] lg:[grid-column:1/2]"
+		class="-mt-12 flex flex-col justify-center gap-4 px-4 lg:absolute lg:left-0 lg:top-0 lg:mt-0 lg:h-full lg:w-[40rem] lg:drop-shadow-sv lg:[grid-column:1/2]"
 	>
 		<h1 class="m-0 text-4xl">{movie.title}</h1>
 		<Stars vote_average={movie.vote_average} vote_count={movie.vote_count} />

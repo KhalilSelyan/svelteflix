@@ -1,6 +1,8 @@
-export const baseUrl = 'https://api.movies.tastejs.com/';
-export const mediaBaseUrl = 'https://image.tmdb.org/t/p';
+import { PUBLIC_TMDB_ACCESS_TOKEN, PUBLIC_TMDB_API_KEY } from '$env/static/public';
 
+// export const baseUrl = 'https://api.movies.tastejs.com/';
+export const baseUrl = 'https://api.themoviedb.org/3/';
+export const mediaBaseUrl = 'https://image.tmdb.org/t/p';
 const cache = new Map();
 
 export async function get(
@@ -11,11 +13,19 @@ export async function get(
 	const q = new URLSearchParams(params);
 	const url = `${baseUrl}${endpoint}?${q}`;
 
-	if (cache.has(url)) {
-		return cache.get(url);
+	const key = `${url}?${PUBLIC_TMDB_API_KEY}`;
+
+	if (cache.has(key)) {
+		return cache.get(key);
 	}
 
-	const res = await fetch(url);
+	const res = await fetch(key, {
+		method: 'GET',
+		headers: {
+			accept: 'application/json',
+			Authorization: `Bearer ${PUBLIC_TMDB_ACCESS_TOKEN}`
+		}
+	});
 
 	if (!res.ok) {
 		throw new Error(`Failed to fetch ${endpoint}`);
@@ -23,7 +33,7 @@ export async function get(
 
 	const data = await res.json();
 
-	cache.set(url, data);
+	cache.set(key, data);
 
 	return data;
 }
